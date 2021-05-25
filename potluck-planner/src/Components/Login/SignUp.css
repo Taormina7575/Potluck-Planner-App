@@ -1,0 +1,37 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto 0;
+    background-color: lightyellow;
+    width: 52rem;
+}
+
+.loginLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+    margin-left: 1rem;
+}
+
+.loginButton {
+    font-size: 3rem;
+    background-color: pink;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 75vh;
+}
+
+.loginInput {
+    background-color: lightyellow;
+    border: 1px solid black;
+    margin-right: 1rem;
+}
+
+.signUpHead {
+    text-align: center;
+    font-size: 4rem;
+}
