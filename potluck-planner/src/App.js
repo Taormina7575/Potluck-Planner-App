@@ -11,15 +11,15 @@ function App() {
   return (
     <div>
       <Switch>
+      <Route  path='/event'>
+         <AddEvent/>
+        </Route>
         <Route path='/signup'>
           <SignUp/>
         </Route>
         <Route path="/">
           <Header />
           <Login/>
-        </Route>
-        <Route  path='/event'>
-         <AddEvent/>
         </Route>
        
       </Switch>

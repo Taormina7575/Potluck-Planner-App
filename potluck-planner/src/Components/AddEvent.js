@@ -1,10 +1,16 @@
-import React from "react";
+import {React, useState} from "react";
+import {v4 as uuid} from 'uuid'
 
+		const activeUser = {
+			id: uuid(),
+			username: 'Marius',
+			password: 'hello',
+		}
 	
-		const initialValue = {
-			organizer_id: Date.now(),
-			event_name: "",
-			description: "",
+		const initialValues = {
+			organizer_id: 0,
+			event_name: "asdsda",
+			description: "asdasd",
 			date: new Date(),
 			time: "1:00PM"
 		};
@@ -12,21 +18,26 @@ import React from "react";
 const AddEvent = props =>{
 	const [state, setState] = useState(initialValues);
 	
-
-	handleChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
+	const handleChange = e => {
+		const {name, value} = e.target;
+		setState({
+            ...state,
+            [name]: value,
+        })
 	};
 
-	createEvent = event => {
+	const createEvent = event => {
 		event.preventDefault();
+		console.log(state)
 		const newEvent = {
-			organizer_id: props.activeUser.id,
+			organizer_id: activeUser.id,
 			event_name: state.event_name,
 			description:state.description,
 			date: state.date,
 			time: state.time
 		};
-		
+		console.log(newEvent)
+		setState(initialValues)
 	};
 
 
@@ -36,47 +47,47 @@ const AddEvent = props =>{
 			<div className="addEventPage">
 				<h1>Plan Your Next Event</h1>
 				<div className="eventsPage">
-					<form onSubmit={this.createEvent} className="eventAdd">
+					<form onSubmit={createEvent} className="eventAdd">
 						<label className="event_name">Event Name</label>
 						<input
-							onChange={this.handleChange}
+							onChange={handleChange}
 							name="event_name"
 							id="event_name"
 							placeholder="Enter Event Name"
-							value={this.state.event_name}
+							value={state.event_name}
 							type="text"
 							className="addElement"
 							required
 						/>
 						<label htmlFor="description">Description</label>
 						<input
-							onChange={this.handleChange}
+							onChange={handleChange}
 							name="description"
 							id="description"
 							placeholder="Enter Description"
-							value={this.state.description}
+							value={state.description}
 							type="text"
 							className="addElement"
 							required
 						/>
 						<label htmlFor="date">Date</label>
 						<input
-							onChange={this.handleChange}
+							onChange={handleChange}
 							name="date"
 							id="date"
 							placeholder="Enter date"
-							value={this.state.date}
+							value={state.date}
 							type="date"
 							className="addElement"
 							required
 						/>
 						<label htmlFor="time">Time</label>
 						<input
-							onChange={this.handleChange}
+							onChange={handleChange}
 							name="time"
 							id="time"
 							placeholder="Enter time"
-							value={this.state.time}
+							value={state.time}
 							type="time"
 							className="addElement"
 							required
