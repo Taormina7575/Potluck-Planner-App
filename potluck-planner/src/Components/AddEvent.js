@@ -130,9 +130,7 @@ const AddEvent = props =>{
 						<button className="createButton">Create Event</button>
 					</form>
 
-
-					<div>
-					<form className="eventAddFood" onSubmit={foodSubmit}>
+					<form className="eventAdd" onSubmit={foodSubmit}>
 					<label className="inputLabelFood">Food Items</label>
 						<input
 							name="food"
@@ -142,19 +140,17 @@ const AddEvent = props =>{
 							placeholder="enter food items"
 							type="text"
 							className="addElement"
-							/>
+						/>
 						<button className="createButton">Submit Food Item</button>
+						<div>
+							{
+								foodState.map((curFood) => {
+									return (
+									<p>{curFood}</p> )
+								})
+							}
+						</div>
 					</form>
-					<div>
-						{
-							foodState.map((curFood) => {
-								return (
-								<p>{curFood}</p> )
-							})
-						}
-					</div>
-					</div>
-
 				</div>
 			</div>
 		);
