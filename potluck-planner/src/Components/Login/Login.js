@@ -29,6 +29,9 @@ export default function Login() {
           <Link to='/signup' className='loginLink'>
             Create New Account
           </Link>
+          <Link to='/event' className='loginLink'>
+           Add Event
+          </Link>
         </div>
       </form>
     </div>

@@ -5,6 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import SignUp from './Components/Login/SignUp'
 
+import AddEvent from "./Components/AddEvent";
+
 function App() {
   return (
     <div>
@@ -16,6 +18,10 @@ function App() {
           <Header />
           <Login/>
         </Route>
+        <Route  path='/event'>
+         <AddEvent/>
+        </Route>
+       
       </Switch>
     </div>
   );
