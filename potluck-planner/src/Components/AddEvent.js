@@ -12,12 +12,33 @@ import {v4 as uuid} from 'uuid'
 			event_name: "asdsda",
 			description: "asdasd",
 			date: new Date(),
-			time: "1:00PM"
+			time: "1:00PM",
+			location: 'PSP',
 		};
+
+		const initialFoods = []
 
 const AddEvent = props =>{
 	const [state, setState] = useState(initialValues);
-	
+	const [foodState, setFoodState] = useState(initialFoods);
+	const [curFoodState, setCurFoodState] = useState('');
+
+	const foodSubmit = e => {
+		e.preventDefault()
+		setFoodState(
+			[
+				...foodState,
+				curFoodState
+			]
+		)
+		setCurFoodState('')
+
+	}
+
+	const foodChange = e => {
+		setCurFoodState(e.target.value)
+	}
+
 	const handleChange = e => {
 		const {name, value} = e.target;
 		setState({
@@ -25,7 +46,7 @@ const AddEvent = props =>{
             [name]: value,
         })
 	};
-
+	
 	const createEvent = event => {
 		event.preventDefault();
 		console.log(state)
@@ -34,7 +55,9 @@ const AddEvent = props =>{
 			event_name: state.event_name,
 			description:state.description,
 			date: state.date,
-			time: state.time
+			time: state.time,
+			location: state.location,
+			foods: foodState,
 		};
 		console.log(newEvent)
 		setState(initialValues)
@@ -70,6 +93,17 @@ const AddEvent = props =>{
 							className="addElement"
 							required
 						/>
+						<label className="location">Location</label>
+						<input
+							onChange={handleChange}
+							name="location"
+							id="location"
+							placeholder="Enter Location Name"
+							value={state.location}
+							type="text"
+							className="addElement"
+							required
+						/>
 						<label htmlFor="date">Date</label>
 						<input
 							onChange={handleChange}
@@ -94,7 +128,19 @@ const AddEvent = props =>{
 						/>
 						<button className="createButton">Create Event</button>
 					</form>
-					
+					<form onSubmit={foodSubmit}>
+					<label className="location">Food Items</label>
+						<input
+							name="food"
+							onChange={foodChange}
+							id="food"
+							value={curFoodState}
+							placeholder="enter food items"
+							type="text"
+							className="addElement"
+						/>
+						<button>Submit Food Item</button>
+					</form>
 				</div>
 			</div>
 		);
