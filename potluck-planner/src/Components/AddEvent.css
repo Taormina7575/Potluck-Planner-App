@@ -1,0 +1,58 @@
+
+h1 {
+  font-size: 5rem;
+  text-align: center;
+  background-color: lightyellow;
+}
+
+.eventsPage {
+  display: flex;
+}
+
+.eventAdd {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+}
+
+.eventAddFood {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.inputLabel {
+  background-color: rgb(255, 115, 0);
+  font-size: 2rem;
+  margin-top: 1rem;
+  border: 2px solid black;
+}
+
+.inputLabelFood {
+  background-color: rgb(255, 115, 0);
+  font-size: 2rem;
+  margin-top: 1rem;
+  border: 2px solid black;
+  width: 99%;
+  margin-left: 1%;
+}
+
+.addElement {
+  width: 60%;
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  margin-top: 1rem;
+}
+
+.createButton {
+  font-size: 2rem;
+  background-color: lightgreen;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}

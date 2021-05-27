@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import {v4 as uuid} from 'uuid'
+import "./AddEvent.css"
 
 		const activeUser = {
 			id: uuid(),
@@ -71,7 +72,7 @@ const AddEvent = props =>{
 				<h1>Plan Your Next Event</h1>
 				<div className="eventsPage">
 					<form onSubmit={createEvent} className="eventAdd">
-						<label className="event_name">Event Name</label>
+						<label className="inputLabel">Event Name</label>
 						<input
 							onChange={handleChange}
 							name="event_name"
@@ -82,7 +83,7 @@ const AddEvent = props =>{
 							className="addElement"
 							required
 						/>
-						<label htmlFor="description">Description</label>
+						<label className="inputLabel">Description</label>
 						<input
 							onChange={handleChange}
 							name="description"
@@ -93,7 +94,7 @@ const AddEvent = props =>{
 							className="addElement"
 							required
 						/>
-						<label className="location">Location</label>
+						<label className="inputLabel">Location</label>
 						<input
 							onChange={handleChange}
 							name="location"
@@ -104,7 +105,7 @@ const AddEvent = props =>{
 							className="addElement"
 							required
 						/>
-						<label htmlFor="date">Date</label>
+						<label className="inputLabel">Date</label>
 						<input
 							onChange={handleChange}
 							name="date"
@@ -115,7 +116,7 @@ const AddEvent = props =>{
 							className="addElement"
 							required
 						/>
-						<label htmlFor="time">Time</label>
+						<label className="inputLabel">Time</label>
 						<input
 							onChange={handleChange}
 							name="time"
@@ -128,8 +129,11 @@ const AddEvent = props =>{
 						/>
 						<button className="createButton">Create Event</button>
 					</form>
-					<form onSubmit={foodSubmit}>
-					<label className="location">Food Items</label>
+
+
+					<div>
+					<form className="eventAddFood" onSubmit={foodSubmit}>
+					<label className="inputLabelFood">Food Items</label>
 						<input
 							name="food"
 							onChange={foodChange}
@@ -138,9 +142,19 @@ const AddEvent = props =>{
 							placeholder="enter food items"
 							type="text"
 							className="addElement"
-						/>
-						<button>Submit Food Item</button>
+							/>
+						<button className="createButton">Submit Food Item</button>
 					</form>
+					<div>
+						{
+							foodState.map((curFood) => {
+								return (
+								<p>{curFood}</p> )
+							})
+						}
+					</div>
+					</div>
+
 				</div>
 			</div>
 		);
